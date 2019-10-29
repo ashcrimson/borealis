@@ -3,14 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Artists
+use App\Artists;
 
 class Songs extends Model
 {
     public $timestamps = true;
 
-    public function artists()
+    public function artistazo()
     {
-        return $this->belongsTo(Artists::class);
+        return $this->belongsTo(Artists::class, 'artist_id');
+
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Artists;
+use App\Songs;
 
 class ArtistTableSeeder extends Seeder
 {
@@ -11,17 +13,9 @@ class ArtistTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        DB::table('artists')->insert([
-            'nombre' => 'Oasis'
-        ]);
+        factory(Artists::class, 5)->create()->each(function(Artists $artist){
+            factory(Songs::class, 5)->create();
 
-        DB::table('artists')->insert([
-            'nombre' => 'Smashing Pumpkins'
-        ]);
-
-        DB::table('artists')->insert([
-            'nombre' => 'Green Day'
-        ]);
+        });
     }
 }

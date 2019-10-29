@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Songs;
 
 class SongsTableSeeder extends Seeder
 {
@@ -12,23 +13,6 @@ class SongsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        DB::table('songs')->insert([
-            'titulo' => 'Supersonic',
-            'artist_id' => 1,
-            'duracion' => 4,
-        ]);
-
-        DB::table('songs')->insert([
-            'titulo' => 'Zero',
-            'artist_id' => 2,
-            'duracion' => 3,
-        ]);
-
-        DB::table('songs')->insert([
-            'titulo' => 'Jaded',
-            'artist_id' => 3,
-            'duracion' => 1,
-        ]);
+        factory(Songs::class, 5)->create();
     }
 }

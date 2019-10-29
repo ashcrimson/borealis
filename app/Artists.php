@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Songs
+use App\Songs;
 
 class Artists extends Model
 {
@@ -14,6 +14,6 @@ class Artists extends Model
 
     public function songs()
     {
-        return $this->hasMany(Songs::class);
+        return $this->hasMany(Songs::class, 'artist_id');
     }
 }

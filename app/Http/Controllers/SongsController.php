@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Songs;
 
 class SongsController extends Controller
 {
     public function index()
     {
-        $songs = DB::table('songs')->get();
+        $songs = Songs::all();
 
-        $artists = DB::table('artists')->get();
-
-    
+       
         $title = 'Listado de Canciones';
 
         return view('lista', compact('title', 'songs', 'artists'));  

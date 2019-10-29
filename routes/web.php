@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'SongsController@index');
+Route::get('/artista/{id}', 'ArtistsController@index')->name('artista');
+
